@@ -1,12 +1,11 @@
 import './App.css';
 import RegistrationPage from "./page/Registration"
-import Navbar from './components/Navbar';
+import AppRouter from './routes/AppRouter'
 import {BrowserRouter as Router} from "react-router-dom"
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <RegistrationPage />
+      <AppRouter/>
     </Router>
   );
 }

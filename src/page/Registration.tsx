@@ -1,6 +1,9 @@
-import { ChangeEvent,FormEvent, useState } from "react";
+import { ChangeEvent,FormEvent, useState, useContext } from "react";
+import {GlobalContext} from "../context/GlobalContext";
 
 const RegistrationPage = () =>{
+
+    const {postUserData, users} = useContext(GlobalContext)
     const [formValues, setFormValues] = useState<UserObject>({
         firstName: "",
         lastName: "",
@@ -11,8 +14,6 @@ const RegistrationPage = () =>{
     const [submitted, setSubmitted] = useState(false);
 
 
-    console.log(formValues)
-
     const handleSubmit = (event:FormEvent<HTMLButtonElement>) =>{
         event.preventDefault();
         setSubmitted(true);
@@ -20,6 +21,14 @@ const RegistrationPage = () =>{
         setTimeout(()=>{
             setSubmitted(false)
         },3000)
+
+        postUserData(formValues)
+        setFormValues({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        })
     }
 
     const handleChangeFirstName = (event:ChangeEvent<HTMLInputElement>) =>{

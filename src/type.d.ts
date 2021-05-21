@@ -5,3 +5,8 @@ type UserObject = {
     email: string;
     password: string;
 }
+
+type InitialState = {
+    users: UserObject[];
+    postUserData:(user:Object) => void;
+}

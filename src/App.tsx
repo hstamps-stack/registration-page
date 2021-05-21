@@ -1,11 +1,14 @@
 import './App.css';
-import RegistrationPage from "./page/Registration"
-import AppRouter from './routes/AppRouter'
-import {BrowserRouter as Router} from "react-router-dom"
+import RegistrationPage from "./page/Registration";
+import AppRouter from './routes/AppRouter';
+import {BrowserRouter as Router} from "react-router-dom";
+import {GlobalProvider} from './context/GlobalContext'
 function App() {
   return (
     <Router>
-      <AppRouter/>
+      <GlobalProvider>
+          <AppRouter/>
+      </GlobalProvider> 
     </Router>
   );
 }
